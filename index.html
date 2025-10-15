@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wiki Sabores Sorocaba</title>
+
+  <!-- LINK PARA O CSS (arquivo separado) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- METADADOS ADICIONAIS (comentários para organização) -->
+  <!-- ======================================================= -->
+  <!-- Wiki Sabores Sorocaba - Página Principal (HTML completo) -->
+  <!-- - Inclui cards para todos os restaurantes presentes no site -->
+  <!-- - Cada card contém: imagem, título, descrição, link, favorito -->
+  <!-- - Cada card possui também um bloco de status com data-abre/data-fecha -->
+  <!-- - Arquivos JS/CSS estão separados: script.js e style.css -->
+  <!-- ======================================================= -->
+
+</head>
+<body>
+
+  <!-- ======================================================= -->
+  <!-- CABEÇALHO -->
+  <!-- ======================================================= -->
+
+  <header class="site-header">
+    <div class="header-content">
+      <img src="imagens/logo.png" alt="Logo Wiki Sabores" class="logo">
+
+      <h1>Wiki Sabores Sorocaba</h1>
+
+      <p class="site-subtitle">Explorando os melhores lugares para comer em Sorocaba — padarias, restaurantes, bares e cafés.</p>
+    </div>
+
+   <nav class="main-nav" aria-label="Menu principal">
+      <ul>
+        <li><button id="theme-toggle-btn" class="theme-btn">🌙</button></li>
+
+        <li id="header-favorites-container">
+          <div id="header-favorites-bar" class="header-favorites"></div>
+        </li>
+        
+        <li id="nav-favoritos-link"><a href="#favoritos">Favoritos</a></li>
+
+        <li><a href="#melhores">Restaurantes</a></li>
+
+        <li><a href="#bares">Bares</a></li> <li><a href="#avaliacao">Avaliação</a></li>
+
+        <li><a href="#avaliacao">Avaliação</a></li>
+
+        <li><a href="#contato">Contato</a></li>
+
+      </ul>
+    </nav>
+  
+  </header>
+
+  <!-- ======================================================= -->
+  <!-- BANNER -->
+  <!-- ======================================================= -->
+
+  <section class="banner" role="banner" aria-label="Banner principal">
+    <h2>Descubra os melhores sabores de Sorocaba!</h2>
+    <p>Encontre padarias, pizzarias, restaurantes e bares com horários, avaliações e links úteis.</p>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- PESQUISA -->
+  <!-- ======================================================= -->
+
+ <div id="search-container" aria-label="Pesquisar restaurantes">
+    <input type="text" id="search" placeholder="Pesquisar por nome, comida ou especialidade..." aria-label="Campo de pesquisa">
+  </div>
+
+   <!------- Filtro por categoria ------->   
+   
+  <div id="filter-container" class="filter-container" aria-label="Filtrar por categoria">
+
+    <div class="suggester-container">
+    <button id="suggester-btn" class="suggester-btn">✨ Surpreenda-me!</button>
+    </div>
+
+    <button class="filter-btn active" data-category="todos">Todos</button>
+    <button class="filter-btn" data-category="bar">Bares</button>
+    <button class="filter-btn" data-category="pizzaria">Pizzarias</button>
+    <button class="filter-btn" data-category="hambúrguer">Hambúrgueres</button>
+    <button class="filter-btn" data-category="italiana">Italiana</button>
+    <button class="filter-btn" data-category="oriental">Oriental</button>
+    <button class="filter-btn" data-category="café">Cafés</button>
+    
+  </div>
+  
+  <section id="favoritos" class="content-section" aria-labelledby="titulo-favoritos">
+    <h2 id="titulo-favoritos">Meus Favoritos</h2>
+    
+    <div class="favorites-controls">
+      <button id="sort-favorites-btn" class="control-btn">Ordenar A-Z</button>
+      <button id="clear-favorites-btn" class="control-btn clear">Limpar Tudo</button>
+    </div>
+    
+    <div class="card-container" id="favoritos-container">
+      </div>
+  </section>
+
+
+  <!-- ======================================================= -->
+  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ======================================================= -->
+
+  <main>
+
+    <!-- ======================================================= -->
+    <!-- SEÇÃO: OS MELHORES (CARDS) -->
+    <!-- ======================================================= -->
+
+    <section id="melhores" class="content-section" aria-labelledby="titulo-melhores">
+      <h2 id="titulo-melhores">Os Melhores Restaurantes de Sorocaba</h2>
+      <p class="intro">A seguir, nossa seleção com informações rápidas: horário, favorito e link para mais detalhes.</p>
+
+      <!-- ======================================================= -->
+      <!-- CONTAINER DE CARDS -->
+      <!-- Substitua/adicione cards conforme necessário -->
+      <!-- ======================================================= -->
+
+      <div class="card-container">
+
+        <!-- ======================================================= -->
+        <!-- CARD 1: PADARIA REAL -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="padaria-real" role="article">
+          <!-- Favorito -->
+          <button class="favorite" aria-label="Favoritar Padaria Real" title="Favoritar">♥</button>
+
+          <!-- Status flutuante com horários (data-abre / data-fecha) -->
+          <div class="status-icone" data-abre="06:00" data-fecha="20:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <!-- Imagem -->
+          <figure>
+            <img src="imagens/padariareal.jpg" alt="Padaria Real — foto" />
+            <figcaption>Padaria Real</figcaption>
+          </figure>
+
+          <!-- Conteúdo do card -->
+          <div class="card-body">
+            <h3 id="padaria-real"><span class="status-dot-inline" aria-hidden="true"></span> Padaria Real</h3>
+            <p>Tradição e sabor desde 1957. Famosa por seus pães, doces e o clássico coxinhão. Ambiente familiar e atendimento acolhedor.</p>
+            <p class="card-meta">Especialidades: pães caseiros, doces, salgados.</p>
+            <a class="card-link" href="https://www.padariareal.com.br" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+          
+
+        <!-- ======================================================= -->
+        <!-- CARD 2: PIZZARIA BELLA ROSA -->
+        <!-- ======================================================= -->
+        <article class="card" aria-labelledby="pizzaria-bella-rosa" role="article">
+          <button class="favorite" aria-label="Favoritar Pizzaria Bella Rosa" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="18:00" data-fecha="23:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/bella rosa.jpg" alt="Pizzaria Bella Rosa — foto" />
+            <figcaption>Pizzaria Bella Rosa</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="pizzaria-bella-rosa"><span class="status-dot-inline" aria-hidden="true"></span> Pizzaria Bella Rosa</h3>
+            <p>Pizzas artesanais com ingredientes selecionados e ambiente acolhedor. Ideal para famílias e encontros com amigos.</p>
+            <p class="card-meta">Especialidades: massa fina, borda recheada, opções veganas.</p>
+            <a class="card-link" href="https://www.google.com/maps?q=Pizzaria+Bella+Rosa+Sorocaba" target="_blank" rel="noopener">Ver no Maps</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 3: CAFÉ DO BOSQUE MARIA'S -->
+        <!-- ======================================================= -->
+        <article class="card" aria-labelledby="cafe-bosque" role="article">
+          <button class="favorite" aria-label="Favoritar Café do Bosque Maria's" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="08:00" data-fecha="18:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/café do bosque.jpg" alt="Café do Bosque Maria's — foto" />
+            <figcaption>Café do Bosque Maria's</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="cafe-bosque"><span class="status-dot-inline" aria-hidden="true"></span> Café do Bosque Maria's</h3>
+            <p>Delícias caseiras, cafés especiais e ambiente tranquilo para relaxar. Perfeito para um café da manhã ou lanche da tarde.</p>
+            <p class="card-meta">Especialidades: cafés especiais, bolos caseiros.</p>
+            <a class="card-link" href="https://www.google.com/maps?q=Café+do+Bosque+Maria's" target="_blank" rel="noopener">Ver no Maps</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 4: BOM BEEF BURGERS -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="bom-beef" role="article">
+          <button class="favorite" aria-label="Favoritar Bom Beef Burgers" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="12:00" data-fecha="22:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/bombeef.jpg" alt="Bom Beef Burgers — foto" />
+            <figcaption>Bom Beef Burgers</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="bom-beef"><span class="status-dot-inline" aria-hidden="true"></span> Bom Beef Burgers</h3>
+            <p>Hambúrgueres artesanais com carnes nobres e receitas exclusivas. Um verdadeiro espetáculo de sabor!</p>
+            <p class="card-meta">Especialidades: burgers gourmets, batatas rústicas.</p>
+            <a class="card-link" href="https://bombeefburgers.com.br/" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 6: COCO BAMBU -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="coco-bambu" role="article">
+          <button class="favorite" aria-label="Favoritar Coco Bambu" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="11:00" data-fecha="23:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/cocobambu.jpg" alt="Coco Bambu Sorocaba — foto" />
+            <figcaption>Coco Bambu Sorocaba</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="coco-bambu"><span class="status-dot-inline" aria-hidden="true"></span> Coco Bambu</h3>
+            <p>Referência nacional em frutos do mar e pratos sofisticados em ambiente elegante.</p>
+            <p class="card-meta">Especialidades: frutos do mar, moquecas, camarões.</p>
+            <a class="card-link" href="https://www.cocobambu.com/unidade/sorocaba/" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 7: OUTBACK -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="outback" role="article">
+          <button class="favorite" aria-label="Favoritar Outback" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="12:00" data-fecha="23:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/outback.jpg" alt="Outback Sorocaba — foto" />
+            <figcaption>Outback Steakhouse</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="outback"><span class="status-dot-inline" aria-hidden="true"></span> Outback Steakhouse</h3>
+            <p>O famoso sabor australiano com carnes e acompanhamentos irresistíveis!</p>
+            <p class="card-meta">Especialidades: ribs, steaks e pratos compartilháveis.</p>
+            <a class="card-link" href="https://www.outback.com.br" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 9: BUMBU RESTAURANTE -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="bumbu" role="article">
+          <button class="favorite" aria-label="Favoritar Bumbu Restaurante" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="18:00" data-fecha="23:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/bambu.jpg" alt="Bumbu Restaurante — foto" />
+            <figcaption>Bumbu Restaurante & Sushi Bar</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="bumbu"><span class="status-dot-inline" aria-hidden="true"></span> Bumbu Restaurante & Sushi Bar</h3>
+            <p>Alta gastronomia oriental e contemporânea com toques únicos e ambiente sofisticado.</p>
+            <p class="card-meta">Especialidades: sushi, pratos contemporâneos.</p>
+            <a class="card-link" href="https://www.bumbu.com.br/" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 10: CAPOLINO -->
+        <!-- ======================================================= -->
+         
+        <article class="card" aria-labelledby="capolino" role="article">
+          <button class="favorite" aria-label="Favoritar Capolino" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="12:00" data-fecha="23:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/capolino.jpg" alt="Capolino Cucina Italiana — foto" />
+            <figcaption>Capolino Cucina Italiana</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="capolino"><span class="status-dot-inline" aria-hidden="true"></span> Capolino Cucina Italiana</h3>
+            <p>Massas artesanais e sabores tradicionais italianos preparados com excelência.</p>
+            <p class="card-meta">Especialidades: massas, risotos e molhos artesanais.</p>
+            <a class="card-link" href="https://www.capolino.com.br/" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 11: LA DOC -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="la-doc" role="article">
+          <button class="favorite" aria-label="Favoritar La Doc" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="12:00" data-fecha="22:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/laDoc.jpg" alt="La Doc Gastronomia — foto" />
+            <figcaption>La Doc Gastronomia</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="la-doc"><span class="status-dot-inline" aria-hidden="true"></span> La Doc Gastronomia</h3>
+            <p>Alta gastronomia e experiência sensorial única em ambiente elegante. Ideal para ocasiões especiais.</p>
+            <p class="card-meta">Especialidades: menus degustação, vinhos selecionados.</p>
+            <a class="card-link" href="https://www.ladocgastronomia.com.br/" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- FIM DOS CARDS -->
+        <!-- ======================================================= -->
+
+      </div> <!-- .card-container -->
+    </section> <!-- #melhores -->
+
+<!-- ======================================================= -->
+<!-- MELHORES BARES-->
+<!-- ======================================================= -->
+
+
+    <section id="bares" class="content-section" aria-labelledby="titulo-bares">
+      <h2 id="titulo-bares">Os Melhores Bares de Sorocaba</h2>
+      <p class="intro">Descubra os melhores bares para happy hour, petiscos e drinks especiais.</p>
+
+      <div class="card-container">
+
+
+         <!-- ======================================================= -->
+        <!-- CARD 1: Bar do Zé -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="bar-do-ze-2" role="article">
+          <button class="favorite" aria-label="Favoritar Bar do Zé" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="17:00" data-fecha="02:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/bar2ze.jpg" alt="Bar do Zé — foto" />
+            <figcaption>Bar do Zé</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="bar-do-ze-2"><span class="status-dot-inline" aria-hidden="true"></span> Bar do Zé</h3>
+            <p>O melhor da comida de boteco e aquele chopp gelado que não pode faltar! Música ao vivo em finais de semana.</p>
+            <p class="card-meta">Especialidades: petiscos, chopes gelados.</p>
+            <a class="card-link" href="https://www.google.com/maps?q=Bar+do+Zé+Sorocaba" target="_blank" rel="noopener">Ver no Maps</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 2: Apple Bees -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="applebees-bar" role="article">
+          <button class="favorite" aria-label="Favoritar Applebee's" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="12:00" data-fecha="23:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/applebees.jpg" alt="Applebee's Sorocaba — foto" />
+            <figcaption>Applebee’s</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="applebees-bar"><span class="status-dot-inline" aria-hidden="true"></span> Applebee’s Sorocaba</h3>
+            <p>Ambiente de bar americano, ideal para drinks, porções generosas e assistir a esportes.</p>
+            <p class="card-meta">Especialidades: drinks, burgers, porções.</p>
+            <a class="card-link" href="https://www.applebees.com.br/" target="_blank" rel="noopener">Ver mais</a>
+          </div>
+        </article>
+
+        <!-- ======================================================= -->
+        <!-- CARD 3: Devil's Pub -->
+        <!-- ======================================================= -->
+
+       <article class="card" aria-labelledby="devils-pub" role="article">
+          <button class="favorite" aria-label="Favoritar Devils Pub" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="18:00" data-fecha="01:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/devilspub.jpg" alt="Devils Pub Sorocaba — foto" />
+            <figcaption>Devils Pub</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="devils-pub"><span class="status-dot-inline" aria-hidden="true"></span> Devils Pub</h3>
+            <p>O ponto de encontro para os amantes de rock e metal em Sorocaba. Ambiente temático com drinks e cervejas especiais.</p>
+            <p class="card-meta">Especialidades: rock'n'roll, cervejas artesanais, drinks.</p>
+            <a class="card-link" href="https://maps.app.goo.gl/FiMAY5tkppLQoYhy8" target="_blank" rel="noopener">Ver no Maps</a>
+          </div>
+        </article>
+        
+        <!-- ======================================================= -->
+        <!-- CARD 4: Asteroid -->
+        <!-- ======================================================= -->
+
+        <article class="card" aria-labelledby="asteroid-bar" role="article">
+          <button class="favorite" aria-label="Favoritar Asteroid" title="Favoritar">♥</button>
+
+          <div class="status-icone" data-abre="20:00" data-fecha="04:00" aria-hidden="true">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status">Verificando...</span>
+          </div>
+
+          <figure>
+            <img src="imagens/asteroid.jpg" alt="Asteroid Bar — foto" />
+            <figcaption>Asteroid</figcaption>
+          </figure>
+
+          <div class="card-body">
+            <h3 id="asteroid-bar"><span class="status-dot-inline" aria-hidden="true"></span> Asteroid</h3>
+            <p>Casa de shows e balada que é referência na cena alternativa e cultural da cidade, com festas temáticas e shows ao vivo.</p>
+            <p class="card-meta">Especialidades: shows ao vivo, festas, música alternativa.</p>
+            <a class="card-link" href="https://maps.app.goo.gl/DX5Qgg95JctZRKGBA" target="_blank" rel="noopener">Ver no Maps</a>
+          </div>
+        </article>
+
+      </div> </section>
+
+      <!---------- fim da seção bares ---------->
+
+
+    <!-- ======================================================= -->
+    <!-- SEÇÃO: AVALIAÇÃO -->
+    <!-- ======================================================= -->
+
+    <section id="avaliacao" class="content-section" aria-labelledby="titulo-avaliacao">
+      <h2 id="titulo-avaliacao">Avalie o nosso site</h2>
+      <p>Deixe sua nota e ajude outras pessoas a descobrirem os melhores sabores de Sorocaba!</p>
+
+      <div id="rating-stars" role="radiogroup" aria-label="Avaliação por estrelas">
+        <button class="star" data-value="1" aria-pressed="false" aria-label="1 estrela">★</button>
+        <button class="star" data-value="2" aria-pressed="false" aria-label="2 estrelas">★</button>
+        <button class="star" data-value="3" aria-pressed="false" aria-label="3 estrelas">★</button>
+        <button class="star" data-value="4" aria-pressed="false" aria-label="4 estrelas">★</button>
+        <button class="star" data-value="5" aria-pressed="false" aria-label="5 estrelas">★</button>
+      </div>
+
+      <p id="rating-text">Média: <span id="average">0</span> de 5 (<span id="total">0</span> avaliações)</p>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- SEÇÃO: CONTATO (FORMULÁRIO) -->
+    <!-- ======================================================= -->
+
+    <section id="contato" class="content-section" aria-labelledby="titulo-contato">
+      <h2 id="titulo-contato">Fale Conosco</h2>
+      <p>Tem sugestões, encontrou um erro ou quer adicionar um restaurante? Envie uma mensagem.</p>
+
+      <!-- Observação: formspree action adicionado para envio real (se desejar) -->
+      <form class="contact-form" action="https://formspree.io/f/xwprngrp" method="POST" novalidate>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit" class="submit-button">Enviar</button>
+      </form>
+
+      <p class="contact-note">Dica: após enviar, aparecerá um aviso com o e-mail que foi usado (útil para testes).</p>
+    </section>
+
+  </main>
+
+  <!-- ======================================================= -->
+  <!-- RODAPÉ -->
+  <!-- ======================================================= -->
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2025 Wiki Sabores Sorocaba — Todos os direitos reservados.</p>
+    <p>Desenvolvido com ❤ para a comunidade gastronômica de Sorocaba.</p>
+  </footer>
+
+  <!-- ======================================================= -->
+  <!-- BOTÃO VOLTAR AO TOPO -->
+  <!-- ======================================================= -->
+
+  <a href="#" id="back-to-top" aria-label="Voltar ao topo">↑</a>
+
+  <!-- ======================================================= -->
+  <!-- MODAL DE DETALHES DO ESTABELECIMENTO -->
+  <!-- ======================================================= -->
+   
+  <div id="details-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="modal-close-btn" class="modal-close" aria-label="Fechar modal">&times;</button>
+      <img id="modal-img" src="" alt="Foto do estabelecimento" class="modal-img">
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+      <p class="card-meta" id="modal-specialties"></p>
+      
+      <div class="modal-info">
+        <p id="modal-address"></p>
+        <p id="modal-phone"></p>
+        <div class="modal-copy-buttons">
+          <button class="copy-btn" data-copy="address">Copiar Endereço</button>
+          <button class="copy-btn" data-copy="phone">Copiar Telefone</button>
+        </div>
+      </div>
+      
+      <a id="modal-link" href="#" class="card-link" target="_blank" rel="noopener">Visitar Site</a>
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- LINK PARA O JAVASCRIPT (arquivo separado) -->
+  <!-- ======================================================= -->
+
+  <script src="script.js"></script>
+
+  <!-- ======================================================= -->
+  <!-- FIM DO DOCUMENTO -->
+  <!-- ======================================================= -->
+
+</body>
+</html>

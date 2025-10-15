@@ -1,0 +1,560 @@
+/* ====== ESTILO GERAL ====== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --cor1: #fde8e0;
+  --cor2: #f9c5bd;
+  --cor3: #f6a192;
+  --texto: #4a2c2a;
+  --branco: #fff;
+  --sombra: rgba(0,0,0,0.1);
+  --amarelo: #ffcc00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--cor1), var(--cor2), var(--cor3));
+  color: var(--texto);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ====== CABEÇALHO ====== */
+.site-header {
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(8px);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: girar 5s linear infinite;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ====== ANIMAÇÃO DO TÍTULO ====== */
+h1 {
+  font-size: 3rem;
+  color: var(--texto);
+  animation: flutuar 3s ease-in-out infinite alternate;
+  position: relative;
+  text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+@keyframes flutuar {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-10px); }
+}
+
+/* ====== NAVEGAÇÃO ====== */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.8rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.main-nav a:hover {
+  color: #8b4c43;
+}
+
+/* ====== BANNER ====== */
+.banner {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.8rem;
+  color: var(--texto);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  margin: 2rem auto;
+  width: 90%;
+}
+
+/* ====== PESQUISA ====== */
+#search-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+#search {
+  width: 80%;
+  max-width: 400px;
+  padding: 0.7rem 1rem;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0 2px 10px var(--sombra);
+  font-size: 1rem;
+}
+
+/* ====== SEÇÃO DE CONTEÚDO ====== */
+.content-section {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--texto);
+}
+
+/* ====== GALERIA (RESTAURANTES) ====== */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.card {
+  background: var(--branco);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px var(--sombra);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-top: 0.8rem;
+  color: var(--texto);
+}
+
+.card p {
+  padding: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.card-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--cor2), var(--cor3));
+  color: var(--branco);
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.card-link:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* ====== FAVORITOS ====== */
+.favorite {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s, transform 0.2s;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.favorite.active {
+  color: #e63946;
+  transform: scale(1.2);
+}
+
+/* ====== STATUS (BOLINHA VERDE/VERMELHA) ====== */
+.status-dot-inline,
+.status-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background-color: gray;
+  vertical-align: middle;
+}
+
+.status-dot.open {
+  background-color: #4caf50;
+}
+
+.status-dot.closed {
+  background-color: #e63946;
+}
+
+.status {
+  font-weight: 600;
+}
+
+/* ====== AVALIAÇÃO (CAIXINHA DE FEEDBACK) ====== */
+#avaliacao {
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  width: 80%;
+  margin: 4rem auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px var(--sombra);
+  padding: 2rem;
+}
+
+#rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.star {
+  color: #d3cfcf;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star.active {
+  color: var(--amarelo);
+}
+
+#rating-text {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* ====== FORMULÁRIO DE CONTATO ====== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+  margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--sombra);
+  font-size: 1rem;
+}
+
+.submit-button {
+  background: linear-gradient(90deg, var(--cor2), var(--cor3));
+  color: var(--branco);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.submit-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ====== BOTÃO VOLTAR AO TOPO ====== */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--cor3);
+  color: var(--branco);
+  border-radius: 50%;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-shadow: 0 3px 10px var(--sombra);
+  transition: 0.3s;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
+/* ====== RODAPÉ ====== */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(8px);
+  font-size: 0.9rem;
+  color: var(--texto);
+}
+
+/* ====== RESPONSIVO ====== */
+@media screen and (max-width: 768px){
+  h1 { font-size: 2.5rem; }
+  .banner { font-size: 1.4rem; padding: 2rem 1rem; }
+}
+
+/* ======= ESTILOS DO CABEÇALHO AO ROLAR (HEADER DINÂMICO) ======== */
+
+/* Adiciona transições suaves para uma animação fluida */
+.site-header, .logo, h1, .site-subtitle, .main-nav {
+  transition: all 0.35s ease-in-out;
+}
+
+/* Define o estado do cabeçalho quando a página é rolada */
+.site-header.scrolled {
+  padding: 0.5rem 2rem; /* Diminui o preenchimento vertical */
+  display: flex;        /* Alinha os itens filhos horizontalmente */
+  flex-direction: row;
+  justify-content: space-between; /* Espaça os itens principais (logo/título de um lado, menu do outro) */
+  align-items: center;   /* Centraliza tudo verticalmente */
+}
+
+/* No estado rolado, o container de conteúdo também se ajusta */
+.site-header.scrolled .header-content {
+  flex-direction: row; /* Alinha logo e título lado a lado */
+  align-items: center;
+  gap: 1rem;         /* Adiciona um espaço entre a logo e o título */
+  text-align: left;
+}
+
+/* Diminui a logo no cabeçalho encolhido */
+.site-header.scrolled .logo {
+  width: 60px;
+  margin-bottom: 0;
+}
+
+/* Diminui o título e para a animação de flutuação */
+.site-header.scrolled h1 {
+  font-size: 1.8rem;
+  animation: none;
+}
+
+/* Esconde o subtítulo de forma suave, sem causar saltos */
+.site-header.scrolled .site-subtitle {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Remove a margem do menu de navegação para alinhamento correto */
+.site-header.scrolled .main-nav {
+  margin-top: 0;
+}
+
+/* ====== SEÇÃO DE FAVORITOS ====== */
+#favoritos {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  margin: 2rem auto;
+  width: 90%;
+  padding: 2rem;
+}
+
+#favoritos h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--texto);
+}
+
+.no-favorites-message {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--texto);
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* ====== FILTROS DE CATEGORIA ====== */
+.filter-container {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.filter-btn {
+  background: var(--branco);
+  color: var(--texto);
+  border: 1px solid var(--cor2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: var(--cor1);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(90deg, var(--cor2), var(--cor3));
+  color: var(--branco);
+  border-color: transparent;
+  box-shadow: 0 2px 8px var(--sombra);
+}
+
+/* ====== ESTILO PARA "FECHA EM BREVE" ====== */
+.status.closing-soon {
+  color: #e67e22; /* Laranja */
+  font-weight: bold;
+}
+
+/* ====== MODO ESCURO (DARK MODE) ====== */
+body.dark-theme {
+  --cor1: #2c3e50;
+  --cor2: #34495e;
+  --cor3: #2c3e50;
+  --texto: #ecf0f1;
+  --branco: #34495e;
+  --sombra: rgba(0,0,0,0.4);
+}
+body.dark-theme .site-header,
+body.dark-theme .site-footer,
+body.dark-theme #avaliacao,
+body.dark-theme #favoritos {
+  background: rgba(0,0,0,0.2);
+}
+body.dark-theme .card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+body.dark-theme .filter-btn {
+  background: var(--branco);
+  color: var(--texto);
+}
+body.dark-theme .filter-btn.active {
+  background: #8e44ad;
+  color: var(--branco);
+}
+
+/* ====== BOTÃO DE TEMA ====== */
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: transform 0.3s;
+}
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+/* ====== BOTÃO SURPREENDA-ME ====== */
+.suggester-container {
+  text-align: center;
+  margin: -1rem 0 2.5rem 0;
+}
+.suggester-btn {
+  background: linear-gradient(90deg, #8e44ad, #9b59b6);
+  color: var(--branco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.suggester-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ====== DESTAQUE DO CARD SUGERIDO ====== */
+.card.highlighted {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(142, 68, 173, 0.7);
+  border: 2px solid #8e44ad;
+}
+
+/* ====== BOTÕES DE COPIAR NO MODAL ====== */
+.modal-copy-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.copy-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+.copy-btn:hover {
+  background-color: #e0e0e0;
+}
+body.dark-theme .copy-btn {
+  background: #4a637e;
+  border-color: #5d7ca1;
+  color: var(--texto);
+}
